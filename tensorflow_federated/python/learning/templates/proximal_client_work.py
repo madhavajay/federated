@@ -25,7 +25,7 @@ implementation of the generalized FedAvg algorithm implemented in
 """
 
 import collections
-from typing import Any, Callable, Optional, Union
+from typing import Any, Callable, Optional, Union, Tuple
 
 import tensorflow as tf
 
