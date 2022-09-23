@@ -108,6 +108,7 @@ setuptools.setup(
         'License :: OSI Approved :: Apache Software License',
         'Operating System :: POSIX :: Linux',
         'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
         'Programming Language :: Python :: 3 :: Only',
@@ -127,5 +128,5 @@ setuptools.setup(
     },
     packages=setuptools.find_packages(exclude=('tools')),
     install_requires=REQUIRED_PACKAGES,
-    python_requires='>=3.9.0,<3.11',
+    python_requires='>=3.8.0,<3.11',
 )
