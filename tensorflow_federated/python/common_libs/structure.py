@@ -274,12 +274,12 @@ def to_odict(struct: Struct, recursive: bool = False) -> OrderedDict[str, Any]:
   py_typecheck.check_type(struct, Struct)
 
   def _to_odict(
-      elements: List[tuple[Optional[str], Any]]) -> OrderedDict[str, Any]:
+      elements: List[Tuple[Optional[str], Any]]) -> OrderedDict[str, Any]:
     for name, _ in elements:
       if name is None:
         raise ValueError('Cannot convert an `Struct` with unnamed entries to a '
                          '`collections.OrderedDict`: {}'.format(struct))
-    elements = typing.cast(List[tuple[str, Any]], elements)
+    elements = typing.cast(List[Tuple[str, Any]], elements)
     return collections.OrderedDict(elements)
 
   if recursive:
@@ -308,7 +308,7 @@ def to_odict_or_tuple(
   py_typecheck.check_type(struct, Struct)
 
   def _to_odict_or_tuple(
-      elements: List[tuple[Optional[str], Any]]
+      elements: List[Tuple[Optional[str], Any]]
   ) -> Union[OrderedDict[str, Any], Tuple[Any, ...]]:
     fields_are_named = tuple(name is not None for name, _ in elements)
     if any(fields_are_named):
@@ -316,7 +316,7 @@ def to_odict_or_tuple(
         raise ValueError(
             'Cannot convert a `Struct` with both named and unnamed '
             'entries to an OrderedDict or tuple: {!r}'.format(struct))
-      elements = typing.cast(List[tuple[str, Any]], elements)
+      elements = typing.cast(List[Tuple[str, Any]], elements)
       return collections.OrderedDict(elements)
     else:
       return tuple(value for _, value in elements)

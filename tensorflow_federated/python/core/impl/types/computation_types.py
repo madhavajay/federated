@@ -24,7 +24,7 @@ import collections
 import difflib
 import enum
 import typing
-from typing import Any, Dict, Optional, Sequence, Type as TypingType, TypeVar, Union
+from typing import Any, Dict, Optional, Sequence, Type as TypingType, TypeVar, Union, Tuple
 import weakref
 
 import attr
@@ -687,7 +687,7 @@ class SequenceType(Type, metaclass=_Intern):
   """
 
   @classmethod
-  def _normalize_init_args(cls, element) -> tuple[Type]:
+  def _normalize_init_args(cls, element) -> Tuple[Type]:
     """Normalizes arguments by converting `list` to `tuple` in struct types."""
     T = TypeVar('T')
 

@@ -15,7 +15,7 @@
 
 import abc
 import collections
-from typing import Any, Generic, TypeVar, OrderedDict
+from typing import Any, Generic, TypeVar, OrderedDict, Tuple
 
 import tensorflow as tf
 
@@ -64,7 +64,7 @@ class Optimizer(abc.ABC, Generic[State, Weights]):
 
   @abc.abstractmethod
   def next(self, state: State, weights: Weights,
-           gradients: Any) -> tuple[State, Weights]:
+           gradients: Any) -> Tuple[State, Weights]:
     """Takes a step of the optimizer.
 
     Args:

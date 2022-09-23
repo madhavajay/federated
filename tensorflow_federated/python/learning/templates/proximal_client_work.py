@@ -224,7 +224,7 @@ def build_model_delta_update_with_keras_optimizer(
 def _build_functional_model_delta_update(
     *, model: functional.FunctionalModel,
     weighting: client_weight_lib.ClientWeighting, delta_l2_regularizer: float
-) -> Callable[[Any, Any, Any], tuple[client_works.ClientResult, Any]]:
+) -> Callable[[Any, Any, Any], Tuple[client_works.ClientResult, Any]]:
   """Creates client update logic in FedProx for a FunctionalModel.
 
   Args:

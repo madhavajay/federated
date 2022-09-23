@@ -14,7 +14,7 @@
 """Adagrad optimizer."""
 
 import collections
-from typing import Any, Generic, TypeVar, OrderedDict
+from typing import Any, Generic, TypeVar, OrderedDict, Tuple
 
 import tensorflow as tf
 
@@ -58,7 +58,7 @@ class _Adagrad(optimizer.Optimizer[State, Weights], Generic[State, Weights]):
     return state
 
   def next(self, state: State, weights: Weights,
-           gradients: Weights) -> tuple[State, Weights]:
+           gradients: Weights) -> Tuple[State, Weights]:
     gradients = optimizer.handle_indexed_slices_gradients(gradients)
     optimizer.check_weights_gradients_match(weights, gradients)
     lr = state[optimizer.LEARNING_RATE_KEY]
